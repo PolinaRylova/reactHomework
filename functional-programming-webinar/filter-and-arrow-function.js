@@ -21,6 +21,9 @@ const users = [
 ];
 
 /*
+// filter - функция проверки каждого элемента; вызывается с аргументами (element, index, array).
+// Возвращает true для сохранения элемента и false для его пропуска.
+
 let admins = users.filter(function (user) {
   return user.type === 'admin';
 });
