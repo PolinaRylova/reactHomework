@@ -24,15 +24,12 @@
 
         // обрезаем пустые строки по краям, иначе не будет адекватно срабатывать проверка inputtedValue ниже
         let inputtedValue = event.target.value.trim();
-        let newName = name;
 
         if (inputtedValue) {
-          newName = inputtedValue
+          this.setState({
+            displayedName: inputtedValue
+          });
         }
-
-        this.setState({
-          displayedName: newName
-        });
       },
 
       render: function () {
