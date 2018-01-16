@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Article on React</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="content"></div>
+  <script type="text/babel">
+    var Article = React.createClass({
+      render: function() {
+        return <div className="article-container">
+                 <h1 className="article-heading">
+                   <span className="article-title">{this.props.title}</span>
+                   <span className="article-author">{this.props.author}</span>
+                 </h1>
+                 <p>{this.props.text}</p>
+               </div>
+      }
+    });
+    ReactDOM.render(
+        <Article title="Заголовок статьи" author="Автор статьи" text="Текст статьи Текст статьи Текст статьи Текст статьи Текст статьи Текст статьи"/>,
+        document.getElementById("content")
+    );
+  </script>
+</body>
+</html>
