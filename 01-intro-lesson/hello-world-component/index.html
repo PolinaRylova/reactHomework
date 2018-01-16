@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dinamic Hello World</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="content"></div>
+  <script type="text/babel">
+    let name = 'stranger';
+
+    let Hello = React.createClass({
+      getInitialState: function () {
+        return {
+          displayedName: name
+        };
+      },
+
+      handleInputChange: function (event) {
+
+        // обрезаем пустые строки по краям, иначе не будет адекватно срабатывать проверка inputtedValue ниже
+        let inputtedValue = event.target.value.trim();
+        let newName = name;
+
+        if (inputtedValue) {
+          newName = inputtedValue
+        }
+
+        this.setState({
+          displayedName: newName
+        });
+      },
+
+      render: function () {
+        return (
+            <div className="hello-container">
+              <input type="text" className="name-field"
+                     onChange={this.handleInputChange}
+                     placeholder="Please, enter your name."/>
+              <div className="greeting-text">Hello, {this.state.displayedName}!</div>
+            </div>
+        );
+      }
+    });
+
+    ReactDOM.render(
+        <Hello />,
+        document.getElementById('content')
+    );
+  </script>
+</body>
+</html>
