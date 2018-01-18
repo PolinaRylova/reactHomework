@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Calculator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="content"></div>
+  <script type="text/babel">
+    let firstNumber = '';
+    let secondNumber = '';
+    let operator = 'addition';
+
+    let Calculator = React.createClass({
+      handleChangeValue: function (event) {
+        let currentField = event.target;
+        switch(currentField.name) {
+          case 'first-number':
+            firstNumber = currentField.value;
+          break;
+          case 'second-number':
+            secondNumber = currentField.value;
+          break;
+          case 'operator':
+            operator = currentField.value;
+        }
+      },
+
+      handleCalculate: function (event) {
+        let resNum = '';
+        switch (operator) {
+          case 'addition':
+            resNum = Number(firstNumber) + Number(secondNumber);
+            break;
+          case 'subtraction':
+            resNum = firstNumber - secondNumber;
+            break;
+          case 'multiplication':
+            resNum = firstNumber * secondNumber;
+            break;
+          case 'division':
+            resNum = firstNumber / secondNumber;
+            break;
+        }
+        document.getElementById('result').innerText = 'Your result is ' + resNum;
+      },
+
+      render: function () {
+        return <div className="calculate-container">
+                  <form className="calculate-form">
+                    <input type="number" name="first-number" placeholder="Enter a first number" onChange={this.handleChangeValue} />
+                    <select size="1" name="operator" onChange={this.handleChangeValue}>
+                      <option defaultValue="placeholder" disabled>Select a mathematical operator</option>
+                      <option value="addition">+</option>
+                      <option value="subtraction">-</option>
+                      <option value="multiplication">*</option>
+                      <option value="division">/</option>
+                    </select>
+                    <input type="number" name="second-number" placeholder="Enter a second number" onChange={this.handleChangeValue} />
+                    <input type="button" value="Calculate" onClick={this.handleCalculate} />
+                  </form>
+                  <div className="result" id="result">Заполните все поля и вместо этого текста отобразится результат вашего выражения</div>
+               </div>
+      }
+      });
+      ReactDOM.render(
+          <Calculator />,
+          document.getElementById('content')
+      );
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+.calculate-container {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.calculate-form {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select,
+select > option {
+  flex-basis: 39px;
+  box-sizing: border-box;
+  margin: 7px 0;
+  padding: 7px;
+  font-family: 'PT Sans', 'Arial', sans-serif;
+  font-size: 18px;
+  color: #315075;
+  border: 1px solid #778899;
+  border-radius: 5px;
+  box-shadow: 4px 5px 8px 0 #778899;
+}
+
+input:hover,
+select:hover,
+select:hover > option {
+  background-color: #e8f6ff;
+}
+
+input:active,
+select:active,
+select:active > option {
+  color: #ffffff;
+  background-color: #394c7c;
+}
+
+.result {
+  font-family: 'PT Sans', 'Arial', sans-serif;
+  font-size: 18px;
+  color: #315075;
+}
+
