@@ -1,0 +1,24 @@
+.timer-container {
+  margin: 0 auto;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input:hover {
+  filter: drop-shadow(0 0 8px #97b3cb);
+}
+
+input:focus {
+  outline: none;
+}
+
+input:active {
+  filter: drop-shadow(0 0 8px #35647d);
+}
+
+h4 {
+  font-size: 20px;
+  color: #003e70;
+}
