@@ -60,6 +60,7 @@ body {
 }
 
 .note-editor {
+  position: relative;
   width: 100%;
   max-width: 600px;
   padding: 16px;
@@ -82,6 +83,8 @@ body {
   width: 100%;
   resize: none;
   margin: 5px;
+  margin-left: 0;
+  padding-left: 0;
   font-size: 14px;
   border: none;
   font-weight: 300;
@@ -89,6 +92,15 @@ body {
 
 .textarea:focus {
   outline: 0;
+}
+
+input[type="color"] {
+  position: absolute;
+  bottom: 16px;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  z-index: 5;
 }
 
 .add-button {
@@ -117,8 +129,10 @@ body {
   top:1px;
 }
 
+input[type="color"]:focus,
 .add-button:focus {
   outline: 0;
+  outline-offset: 0;
 }
 
 .notes-grid {
