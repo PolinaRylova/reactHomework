@@ -1,9 +1,9 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: "./03-environment/src/index.js",
+  entry: "./src/index.js",
   output: {
-    path: __dirname + '/03-environment/public/build',
+    path: __dirname + '/public/build',
     publicPath: "build/",
     filename: "bundle.js"
   },
